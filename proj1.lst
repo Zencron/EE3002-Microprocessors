@@ -1,0 +1,44 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             Prog1 , CODE , READONLY
+    2 00000000                 ENTRY
+    3 00000000         
+    4 00000000 E3A00E11        MOV              r0 , #0x110
+    5 00000004 E1A01080        MOV              r1 , r0 , LSL #1
+    6 00000008 E1A02081        MOV              r2 , r1 , LSL #1
+    7 0000000C         
+    8 0000000C EAFFFFFE 
+                       stop    B                stop
+    9 00000010                 END
+Command Line: --debug --xref --apcs=interwork --depend=.\proj1.d -o.\proj1.o -I
+"C:\Program Files\ARM\RV31\INC" -I"C:\Program Files\ARM\CMSIS\Include" -I"C:\Pr
+ogram Files\ARM\Inc\Philips" --predefine="__EVAL SETA 1" --list=.\proj1.lst Pro
+j1.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Prog1 00000000
+
+Symbol: Prog1
+   Definitions
+      At line 1 in file Proj1.s
+   Uses
+      None
+Comment: Prog1 unused
+stop 0000000C
+
+Symbol: stop
+   Definitions
+      At line 8 in file Proj1.s
+   Uses
+      At line 8 in file Proj1.s
+Comment: stop used once
+2 symbols
+333 symbols in table
