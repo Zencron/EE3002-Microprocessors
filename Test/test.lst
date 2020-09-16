@@ -1,0 +1,41 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             test , CODE
+    2 00000000                 ENTRY
+    3 00000000         
+    4 00000000 E3A02B5D        MOV              r2 , #0x17400
+    5 00000004         
+    6 00000004 EAFFFFFE 
+                       stop    B                stop
+    7 00000008                 END
+Command Line: --debug --xref --apcs=interwork --depend=.\test.d -o.\test.o -I"C
+:\Program Files\ARM\RV31\INC" -I"C:\Program Files\ARM\CMSIS\Include" -I"C:\Prog
+ram Files\ARM\Inc\Philips" --predefine="__EVAL SETA 1" --list=.\test.lst Test.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+stop 00000004
+
+Symbol: stop
+   Definitions
+      At line 6 in file Test.s
+   Uses
+      At line 6 in file Test.s
+Comment: stop used once
+test 00000000
+
+Symbol: test
+   Definitions
+      At line 1 in file Test.s
+   Uses
+      None
+Comment: test unused
+2 symbols
+333 symbols in table

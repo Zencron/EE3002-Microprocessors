@@ -1,0 +1,1 @@
+.\test.o: Test.s

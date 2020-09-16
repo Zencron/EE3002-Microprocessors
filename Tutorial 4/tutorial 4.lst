@@ -1,0 +1,47 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             Tutorial4 , CODE , READONLY
+    2 00000000                 ENTRY
+    3 00000000         
+    4 00000000 E3A00024        MOV              r0 , #0x24
+    5 00000004 E3A01006        MOV              r1 , #0x06
+    6 00000008 E3A020FC        MOV              r2 , #0xFC
+    7 0000000C E3A03003        MOV              r3 , #0x03
+    8 00000010 E3A040FF        MOV              r4 , #0xFF
+    9 00000014 E4C0C001        STRB             r12 , [r0] , #1
+   10 00000018         
+   11 00000018 EAFFFFFE 
+                       stop    B                stop
+   12 0000001C                 END
+Command Line: --debug --xref --apcs=interwork --depend=".\tutorial 4.d" -o".\tu
+torial 4.o" -I"C:\Program Files\ARM\RV31\INC" -I"C:\Program Files\ARM\CMSIS\Inc
+lude" -I"C:\Program Files\ARM\Inc\Philips" --predefine="__EVAL SETA 1" --list=.
+\tutorial 4.lst "Tutorial 4.s"
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Tutorial4 00000000
+
+Symbol: Tutorial4
+   Definitions
+      At line 1 in file Tutorial
+   Uses
+      None
+Comment: Tutorial4 unused
+stop 00000018
+
+Symbol: stop
+   Definitions
+      At line 11 in file Tutorial
+   Uses
+      At line 11 in file Tutorial
+Comment: stop used once
+2 symbols
+333 symbols in table
