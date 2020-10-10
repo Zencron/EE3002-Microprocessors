@@ -1,0 +1,124 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             Exercise2 , CODE , READONLY
+    2 00000000                 ENTRY
+    3 00000000        0 
+                       counter RN               0
+    4 00000000        1 
+                       celsius RN               1
+    5 00000000        2 
+                       fahrenheit
+                               RN               2
+    6 00000000        3 
+                       celsiusValues
+                               RN               3
+    7 00000000        4 
+                       fahrenheitValues
+                               RN               4
+    8 00000000        5 
+                       multiply
+                               RN               5
+    9 00000000        6 
+                       plus    RN               6
+   10 00000000         
+   11 00000000 E3A0000A        MOV              counter , #10
+   12 00000004 E28F302C        ADR              celsiusValues , CelsiusTable
+   13 00000008 E59F4050        LDR              fahrenheitValues , =0x40000100
+   14 0000000C E59F5050        LDR              multiply , =0x0000E666 ;Q17.15
+   15 00000010 E3A06601        LDR              plus , =0x00100000 ;Q17.15
+   16 00000014         
+   17 00000014 E4931004 
+                       Loop    LDR              celsius , [celsiusValues] , #4
+   18 00000018 E0020591        MUL              fahrenheit , celsius , multiply
+ 
+                                                            ; multiples by 1.8 
+                                                            , saves in Q41.23 f
+                                                            ormat but excludes 
+                                                            first 32 bits (Q9.2
+                                                            3)
+   19 0000001C E1A02422        LSR              fahrenheit , fahrenheit , #8 ; 
+                                                            converts to Q17.15 
+                                                            format
+   20 00000020 E0822006        ADD              fahrenheit , fahrenheit , plus 
+                                                            ; adds 32, saves in
+                                                             Q17.15 format
+   21 00000024 E1A023A2        LSR              fahrenheit , #7 ; converts to Q
+                                                            24.8 format
+   22 00000028 E4842004        STR              fahrenheit , [fahrenheitValues]
+ , #4
+   23 0000002C E2500001        SUBS             counter , counter , #1
+   24 00000030 1AFFFFF7        BNE              Loop
+   25 00000034         
+   26 00000034 EAFFFFFE 
+                       Stop    B                Stop
+   27 00000038 00001080 
+              0000119A 
+              000012E6 
+              0000141A 
+              00001680 
+              00001AB3 
+              00001CE6 
+              0000239A 
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+              00002433 
+              0000259A CelsiusTable
+                               DCD              0x00001080 , 0x0000119A , 0x000
+012E6 , 0x0000141A , 0x00001680 , 0x00001AB3 , 0x00001CE6 , 0x0000239A , 0x0000
+2433 , 0x0000259A
+   28 00000060         
+   29 00000060                 END
+              40000100 
+              0000E666 
+Command Line: --debug --xref --apcs=interwork --depend=.\chongzhiyujustin_lab2.
+d -o.\chongzhiyujustin_lab2.o -I"C:\Program Files\ARM\RV31\INC" -I"C:\Program F
+iles\ARM\CMSIS\Include" -I"C:\Program Files\ARM\Inc\Philips" --predefine="__EVA
+L SETA 1" --list=.\chongzhiyujustin_lab2.lst ChongZhiYuJustin_Lab2.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+CelsiusTable 00000038
+
+Symbol: CelsiusTable
+   Definitions
+      At line 27 in file ChongZhiYuJustin_Lab2.s
+   Uses
+      At line 12 in file ChongZhiYuJustin_Lab2.s
+Comment: CelsiusTable used once
+Exercise2 00000000
+
+Symbol: Exercise2
+   Definitions
+      At line 1 in file ChongZhiYuJustin_Lab2.s
+   Uses
+      None
+Comment: Exercise2 unused
+Loop 00000014
+
+Symbol: Loop
+   Definitions
+      At line 17 in file ChongZhiYuJustin_Lab2.s
+   Uses
+      At line 24 in file ChongZhiYuJustin_Lab2.s
+Comment: Loop used once
+Stop 00000034
+
+Symbol: Stop
+   Definitions
+      At line 26 in file ChongZhiYuJustin_Lab2.s
+   Uses
+      At line 26 in file ChongZhiYuJustin_Lab2.s
+Comment: Stop used once
+4 symbols
+344 symbols in table

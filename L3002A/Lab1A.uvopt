@@ -185,7 +185,7 @@
 
   <Group>
     <GroupName>Source Group 1</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -198,10 +198,10 @@
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1</TopLine>
-      <CurrentLine>7</CurrentLine>
+      <CurrentLine>12</CurrentLine>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\Test.s</PathWithFileName>
-      <FilenameWithoutPath>Test.s</FilenameWithoutPath>
+      <PathWithFileName>.\Lab1A.s</PathWithFileName>
+      <FilenameWithoutPath>Lab1A.s</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
