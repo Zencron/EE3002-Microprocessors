@@ -1,0 +1,67 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             Tutorial7 , CODE , READONLY
+    2 00000000                 ENTRY
+    3 00000000         
+    4 00000000        0 
+                       memory  RN               0
+    5 00000000        4 
+                       count   RN               4
+    6 00000000 E3A00101        MOV              memory , #0x40000000
+    7 00000004 E3A04012        MOV              count , #18
+    8 00000008 E3A01000        MOV              r1 , #0
+    9 0000000C E4801004        STR              r1 , [memory] , #4
+   10 00000010 E3A01001        MOV              r1 , #1
+   11 00000014 E4801004        STR              r1 , [memory] , #4
+   12 00000018         
+   13 00000018 E5101008 
+                       fibo    LDR              r1 , [memory , #-8]
+   14 0000001C E5102004        LDR              r2 , [memory , #-4]
+   15 00000020 E0813002        ADD              r3 , r1 , r2
+   16 00000024 E4803004        STR              r3 , [memory] , #4
+   17 00000028 E2544001        SUBS             count , count , #1
+   18 0000002C 1AFFFFF9        BNE              fibo
+   19 00000030         
+   20 00000030 EAFFFFFE 
+                       stop    B                stop
+   21 00000034                 END
+Command Line: --debug --xref --apcs=interwork --depend=".\tutorial 7.d" -o".\tu
+torial 7.o" -I"C:\Program Files\ARM\RV31\INC" -I"C:\Program Files\ARM\CMSIS\Inc
+lude" -I"C:\Program Files\ARM\Inc\Philips" --predefine="__EVAL SETA 1" --list=.
+\tutorial 7.lst "Tutorial 7.s"
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Tutorial7 00000000
+
+Symbol: Tutorial7
+   Definitions
+      At line 1 in file Tutorial
+   Uses
+      None
+Comment: Tutorial7 unused
+fibo 00000018
+
+Symbol: fibo
+   Definitions
+      At line 13 in file Tutorial
+   Uses
+      At line 18 in file Tutorial
+Comment: fibo used once
+stop 00000030
+
+Symbol: stop
+   Definitions
+      At line 20 in file Tutorial
+   Uses
+      At line 20 in file Tutorial
+Comment: stop used once
+3 symbols
+336 symbols in table
